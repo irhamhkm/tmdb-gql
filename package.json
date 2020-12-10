@@ -1,0 +1,23 @@
+{
+  "name": "tmdb-gql",
+  "version": "1.0.0",
+  "description": "gql server for my tmdb app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irhamhkm/tmdb-gql.git"
+  },
+  "author": "irhamhkm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irhamhkm/tmdb-gql/issues"
+  },
+  "homepage": "https://github.com/irhamhkm/tmdb-gql#readme",
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "graphql": "^15.4.0"
+  }
+}
