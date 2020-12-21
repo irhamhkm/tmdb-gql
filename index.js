@@ -20,7 +20,9 @@ const server = new ApolloServer({
   },
   cors: {
     origin: process.env.CLIENT_URL || process.env.CLIENT_URL_REACT || process.env.CLIENT_URL_VUE
-  }
+  },
+  playground: true,
+  introspection: true,
 });
 
 // The `listen` method launches a web server.
