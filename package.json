@@ -4,7 +4,8 @@
   "description": "gql server for my tmdb app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon --watch api --watch schema --watch index.js index.js"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,14 @@
     "url": "https://github.com/irhamhkm/tmdb-gql/issues"
   },
   "homepage": "https://github.com/irhamhkm/tmdb-gql#readme",
+  "type": "module",
   "dependencies": {
+    "apollo-datasource-rest": "^0.9.5",
     "apollo-server": "^2.19.0",
+    "dotenv": "^8.2.0",
     "graphql": "^15.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
