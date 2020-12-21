@@ -19,7 +19,7 @@ const server = new ApolloServer({
     }
   },
   cors: {
-    origin: process.env.CLIENT_URL || process.env.CLIENT_URL_REACT || process.env.CLIENT_URL_VUE
+    origin: process.env.CLIENT_URL
   }
 });
 

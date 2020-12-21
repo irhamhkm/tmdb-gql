@@ -46,6 +46,18 @@ export default class MovieAPI extends RESTDataSource {
     return result;
   }
 
+  async rateMovie({ movie_id, session_id, value }) {
+    const url = `${this.baseURL}/movie/${movie_id}/rating?session_id=${session_id}`;
+    const result = await this.post(url, { value });
+    return result;
+  }
+
+  async deleteRating({ movie_id, session_id }) {
+    const url = `${this.baseURL}/movie/${movie_id}/rating?session_id=${session_id}`;
+    const result = await this.delete(url);
+    return result;
+  }
+
   async getRecommendations({ movie_id }) {
     const url = `${this.baseURL}/movie/${movie_id}/recommendations`;
     const result = await this.get(url);

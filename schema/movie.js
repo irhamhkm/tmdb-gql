@@ -43,6 +43,11 @@ export const typeDefs = `
     total_pages: Int
   }
 
+  type MutationResponse {
+    status_code: Int
+    status_message: String
+  }
+
   type Query {
     getConfig: Config,
     getSearchMovie(query: String!): SearchMovie,
@@ -52,6 +57,10 @@ export const typeDefs = `
     getUpcomingMovies: SearchMovie,
     getPopularMovies: SearchMovie,
     getTopRatedMovies: SearchMovie
+  }
+  type Mutation {
+    rateMovie(movie_id: String, session_id: String, value: Float): MutationResponse,
+    deleteRating(movie_id: String, session_id: String): MutationResponse
   }
 `;
 
