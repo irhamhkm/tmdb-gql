@@ -17,6 +17,9 @@ const server = new ApolloServer({
     return {
       key: process.env.API_KEY
     }
+  },
+  cors: {
+    origin: process.env.CLIENT_URL || process.env.CLIENT_URL_REACT || process.env.CLIENT_URL_VUE
   }
 });
 
