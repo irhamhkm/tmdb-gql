@@ -19,6 +19,8 @@ export const typeDefs = `
     popularity: Float
     genre_ids: [Int]
     status: String
+    vote_count: Int
+    vote_average: Float
   }
 
   type Genre {

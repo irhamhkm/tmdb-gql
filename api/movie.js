@@ -25,6 +25,7 @@ export default class MovieAPI extends RESTDataSource {
   async getUpcomingMovies() {
     const url = `${this.baseURL}/movie/upcoming`;
     const result = await this.get(url);
+    console.log('get upcoming movies -- ', url );
     return result;
   }
 
