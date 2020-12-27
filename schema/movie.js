@@ -18,7 +18,6 @@ export const typeDefs = `
     title: String
     popularity: Float
     genre_ids: [Int]
-    status: String
     vote_count: Int
     vote_average: Float
   }
