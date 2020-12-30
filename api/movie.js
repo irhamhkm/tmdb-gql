@@ -22,21 +22,21 @@ export default class MovieAPI extends RESTDataSource {
     return result;
   }
 
-  async getUpcomingMovies() {
-    const url = `${this.baseURL}/movie/upcoming`;
+  async getUpcomingMovies({ page }) {
+    const url = `${this.baseURL}/movie/upcoming?page=${page}`;
     const result = await this.get(url);
     console.log('get upcoming movies -- ', url );
     return result;
   }
 
-  async getPopularMovies() {
-    const url = `${this.baseURL}/movie/popular`;
+  async getPopularMovies({ page }) {
+    const url = `${this.baseURL}/movie/popular?page=${page}`;
     const result = await this.get(url);
     return result;
   }
 
-  async getTopRatedMovies() {
-    const url = `${this.baseURL}/movie/top_rated`;
+  async getTopRatedMovies({ page }) {
+    const url = `${this.baseURL}/movie/top_rated?page=${page}`;
     const result = await this.get(url);
     return result;
   }
