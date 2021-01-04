@@ -1,4 +1,5 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import { extractMovieResult } from '../utilities/index.js';
 
 export default class MovieAPI extends RESTDataSource {
   constructor() {

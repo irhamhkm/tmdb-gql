@@ -51,10 +51,10 @@ export const typeDefs = `
 
   type Query {
     getConfig: Config,
-    getSearchMovie(query: String): SearchMovie,
-    getMovieDetail(movie_id: Int): Movie,
-    getRecommendations(movie_id: Int): SearchMovie,
-    getSimilarMovies(movie_id: Int): SearchMovie,
+    getSearchMovie(query: String!): SearchMovie,
+    getMovieDetail(movie_id: Int!): Movie,
+    getRecommendations(movie_id: Int!): SearchMovie,
+    getSimilarMovies(movie_id: Int!): SearchMovie,
     getUpcomingMovies(page: Int!): SearchMovie,
     getPopularMovies(page: Int!): SearchMovie,
     getTopRatedMovies(page: Int!): SearchMovie
