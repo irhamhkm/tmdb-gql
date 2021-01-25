@@ -50,14 +50,14 @@ export const typeDefs = `
   }
 
   type Query {
-    getConfig: Config,
-    getSearchMovie(query: String!): SearchMovie,
-    getMovieDetail(movie_id: Int!): Movie,
-    getRecommendations(movie_id: Int!): SearchMovie,
-    getSimilarMovies(movie_id: Int!): SearchMovie,
-    getUpcomingMovies(page: Int!): SearchMovie,
-    getPopularMovies(page: Int!): SearchMovie,
-    getTopRatedMovies(page: Int!): SearchMovie
+    config: Config,
+    searchMovie(query: String!): SearchMovie,
+    movieDetail(movie_id: Int!): Movie,
+    recommendations(movie_id: Int!): SearchMovie,
+    similarMovies(movie_id: Int!): SearchMovie,
+    upcomingMovies(page: Int!): SearchMovie,
+    popularMovies(page: Int!): SearchMovie,
+    topRatedMovies(page: Int!): SearchMovie
   }
   type Mutation {
     rateMovie(movie_id: String, session_id: String, value: Float): MutationResponse,
@@ -67,7 +67,7 @@ export const typeDefs = `
 
 export const resolvers = {
   Query: {
-    getConfig(parent, args, context) {
+    config(parent, args, context) {
       return context.dataSources.movieAPI.getConfig();
     },
     getSearchMovie(parents, args, context) {
@@ -82,13 +82,13 @@ export const resolvers = {
     getSimilarMovies(parents, args, context) {
       return context.dataSources.movieAPI.getSimilarMovies(args);
     },
-    getUpcomingMovies(parents, args, context) {
+    upcomingMovies(parents, args, context) {
       return context.dataSources.movieAPI.getUpcomingMovies(args);
     },
-    getPopularMovies(parents, args, context) {
+    popularMovies(parents, args, context) {
       return context.dataSources.movieAPI.getPopularMovies(args);
     },
-    getTopRatedMovies(parents, args, context) {
+    topRatedMovies(parents, args, context) {
       return context.dataSources.movieAPI.getTopRatedMovies(args);
     }
   }
