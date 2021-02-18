@@ -18,7 +18,8 @@ export const typeDefs = `
     title: String
     popularity: Float
     genre_ids: [Int]
-    status: String
+    vote_count: Int
+    vote_average: Float
   }
 
   type Genre {
@@ -43,43 +44,52 @@ export const typeDefs = `
     total_pages: Int
   }
 
+  type MutationResponse {
+    status_code: Int
+    status_message: String
+  }
+
   type Query {
-    getConfig: Config,
-    getSearchMovie(query: String!): SearchMovie,
-    getMovieDetail(movie_id: Int!): Movie,
-    getRecommendations(movie_id: Int!): SearchMovie,
-    getSimilarMovies(movie_id: Int!): SearchMovie,
-    getUpcomingMovies: SearchMovie,
-    getPopularMovies: SearchMovie,
-    getTopRatedMovies: SearchMovie
+    config: Config,
+    searchMovie(query: String!): SearchMovie,
+    movieDetail(movie_id: Int!): Movie,
+    recommendations(movie_id: Int!): SearchMovie,
+    similarMovies(movie_id: Int!): SearchMovie,
+    upcomingMovies(page: Int!): SearchMovie,
+    popularMovies(page: Int!): SearchMovie,
+    topRatedMovies(page: Int!): SearchMovie
+  }
+  type Mutation {
+    rateMovie(movie_id: String, session_id: String, value: Float): MutationResponse,
+    deleteRating(movie_id: String, session_id: String): MutationResponse
   }
 `;
 
 export const resolvers = {
   Query: {
-    getConfig(parent, args, context) {
+    config(parent, args, context) {
       return context.dataSources.movieAPI.getConfig();
     },
-    getSearchMovie(parents, args, context) {
+    searchMovie(parents, args, context) {
       return context.dataSources.movieAPI.getSearchMovie(args);
     },
-    getMovieDetail(parent, args, context) {
+    movieDetail(parent, args, context) {
       return context.dataSources.movieAPI.getMovieDetail(args);
     },
-    getRecommendations(parents, args, context) {
+    recommendations(parents, args, context) {
       return context.dataSources.movieAPI.getRecommendations(args);
     },
-    getSimilarMovies(parents, args, context) {
+    similarMovies(parents, args, context) {
       return context.dataSources.movieAPI.getSimilarMovies(args);
     },
-    getUpcomingMovies(parents, args, context) {
-      return context.dataSources.movieAPI.getUpcomingMovies();
+    upcomingMovies(parents, args, context) {
+      return context.dataSources.movieAPI.getUpcomingMovies(args);
     },
-    getPopularMovies(parents, args, context) {
-      return context.dataSources.movieAPI.getPopularMovies();
+    popularMovies(parents, args, context) {
+      return context.dataSources.movieAPI.getPopularMovies(args);
     },
-    getTopRatedMovies(parents, args, context) {
-      return context.dataSources.movieAPI.getTopRatedMovies();
+    topRatedMovies(parents, args, context) {
+      return context.dataSources.movieAPI.getTopRatedMovies(args);
     }
   }
 };

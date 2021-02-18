@@ -22,20 +22,21 @@ export default class MovieAPI extends RESTDataSource {
     return result;
   }
 
-  async getUpcomingMovies() {
-    const url = `${this.baseURL}/movie/upcoming`;
+  async getUpcomingMovies({ page }) {
+    const url = `${this.baseURL}/movie/upcoming?page=${page}`;
+    const result = await this.get(url);
+    console.log('get upcoming movies -- ', url );
+    return result;
+  }
+
+  async getPopularMovies({ page }) {
+    const url = `${this.baseURL}/movie/popular?page=${page}`;
     const result = await this.get(url);
     return result;
   }
 
-  async getPopularMovies() {
-    const url = `${this.baseURL}/movie/popular`;
-    const result = await this.get(url);
-    return result;
-  }
-
-  async getTopRatedMovies() {
-    const url = `${this.baseURL}/movie/top_rated`;
+  async getTopRatedMovies({ page }) {
+    const url = `${this.baseURL}/movie/top_rated?page=${page}`;
     const result = await this.get(url);
     return result;
   }
@@ -43,6 +44,18 @@ export default class MovieAPI extends RESTDataSource {
   async getMovieDetail({ movie_id }) {
     const url = `${this.baseURL}/movie/${movie_id}`;
     const result = await this.get(url);
+    return result;
+  }
+
+  async rateMovie({ movie_id, session_id, value }) {
+    const url = `${this.baseURL}/movie/${movie_id}/rating?session_id=${session_id}`;
+    const result = await this.post(url, { value });
+    return result;
+  }
+
+  async deleteRating({ movie_id, session_id }) {
+    const url = `${this.baseURL}/movie/${movie_id}/rating?session_id=${session_id}`;
+    const result = await this.delete(url);
     return result;
   }
 
