@@ -70,16 +70,16 @@ export const resolvers = {
     config(parent, args, context) {
       return context.dataSources.movieAPI.getConfig();
     },
-    getSearchMovie(parents, args, context) {
+    searchMovie(parents, args, context) {
       return context.dataSources.movieAPI.getSearchMovie(args);
     },
-    getMovieDetail(parent, args, context) {
+    movieDetail(parent, args, context) {
       return context.dataSources.movieAPI.getMovieDetail(args);
     },
-    getRecommendations(parents, args, context) {
+    recommendations(parents, args, context) {
       return context.dataSources.movieAPI.getRecommendations(args);
     },
-    getSimilarMovies(parents, args, context) {
+    similarMovies(parents, args, context) {
       return context.dataSources.movieAPI.getSimilarMovies(args);
     },
     upcomingMovies(parents, args, context) {
